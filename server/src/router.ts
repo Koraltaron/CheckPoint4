@@ -6,13 +6,13 @@ const router = express.Router();
 // Define Your API Routes Here
 /* ************************************************************************* */
 
-// Define item-related routes
-import itemActions from "./modules/item/itemActions";
+// imports
+import gameCharacterActions from "./modules/gamecharacter/gameCharacterActions";
 
-router.get("/api/items", itemActions.browse);
-router.get("/api/items/:id", itemActions.read);
-router.post("/api/items", itemActions.add);
+/* ************************ */
 
-/* ************************************************************************* */
+/* gameCharacter routes */
+router.get("/api/gamecharacter", gameCharacterActions.browse);
+router.get("/api/gamecharacter/:id", gameCharacterActions.read);
 
 export default router;
