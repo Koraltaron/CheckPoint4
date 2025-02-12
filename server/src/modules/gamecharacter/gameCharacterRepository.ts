@@ -13,6 +13,13 @@ class GameCharacterRepository {
     return rows as GameCharacter[];
   }
 
+  async readAndSortByInitiative() {
+    const [rows] = await databaseClient.query<Rows>(
+      "select * from gamecharacter order by initiative_score DESC",
+    );
+    return rows as GameCharacter[];
+  }
+
   async readById(id: string) {
     const [row] = await databaseClient.query<Rows>(
       "select * from gamecharacter where id = ?",
