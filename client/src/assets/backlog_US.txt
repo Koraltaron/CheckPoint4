@@ -1,0 +1,42 @@
+MVP : 
+Créer une application permettant d'afficher des personnages de jeu de rôles, de gérer 
+leurs ressources et d'afficher automatiquement l'ordre de tour de jeu en fonction de leur initiative.
+De plus, un utilisateur connecté peut créer, supprimer, modifier et afficher un personnage dans la page dédiée.
+
+Liste des features : 
+- création de la BDD dans le schema.sql
+- création des dossiers Actions et Repository pour les trois tables (user, manage, character)
+- router.tsx --> 3 pages : home (HomePage.tsx "/") / connexion (LoginPage.tsx "/login") / board (BoardPage.tsx "/board")
+- composants (+ leurs fichiers CSS) : 
+  - Character.tsx (affiche les personnages fetcher dans HomePage), 
+  - NavBar.tsx (permet de se déplacer dans l'appli)
+  - CharacterDetails.tsx (affiche les informations détaillées du personnage dans BoardPage)
+  - TurnOrder.tsx (affiche l'ordre de jeu des personnages en fonction de leur initiative)
+  - Login.tsx (formulaire de connexion)
+  - Register.tsx (formulaire d'inscription)
+  - CharacterList.tsx (affiche la liste des personnages dans la BDD)
+  - CharacterForm.tsx (permet l'édition ou la modification d'un nouveau personnage)
+- router.ts :
+  - GET /api/character
+  - POST /api/character
+  - PUT /api/character
+  - DELETE /api/character
+  - POST /api/user
+
+User Stories : 
+1 : Nettoyage du Repo + organisation des dossiers + création du fichier globals.css
+2 : Création de la BDD dans le schema SQL + migrate
+3 : Création des routes API + des dossiers Actions et Repository pour user et character + test des routes backend avec client.http
+4 : Création du router.tsx dans main.tsx + création des composants pages + mise en place de l'outlet + de la NavBar (pour tester les routes)
+5 : Travail sur la HomePage et ses composants (TurnOrder, Character) + mise en place du fetch GET /api/character
+6 : Travail sur la LoginPage et ses composants (Login, Register) + mise en place du fetch POST /api/user
+7 : Travail sur la BoardPage et ses composants ( CharacterList, CharacterForm, CharacterDetails) + mise en place des fetch : 
+  - POST /api/character,
+  - GET /api/character, 
+  - PUT /api/character,
+  - DELETE /api/character
+
+/*** Suite = si le temps ***/
+8 : Création d'un context = vérification si l'utilisateur est connecté
+9 : Création d'un composant ProtectedRoutes.tsx pour bloquer la navigation vers la BoardPage si l'utilisateur n'est pas connecté
+10 : Mettre deux validateurs : un sur POST /api/user pour l'enregistrement et l'autre sur POST /api/character pour la création de personnage
