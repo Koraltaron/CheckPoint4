@@ -1,4 +1,7 @@
-import databaseClient, { type Rows } from "../../../database/client";
+import databaseClient, {
+  type Result,
+  type Rows,
+} from "../../../database/client";
 
 interface GameCharacter {
   id: number;
@@ -26,6 +29,34 @@ class GameCharacterRepository {
       [id],
     );
     return row as GameCharacter[];
+  }
+
+  async create(character: Omit<GameCharacter, "id">) {
+    const {
+      name,
+      role,
+      image,
+      status,
+      vital_points,
+      mana_points,
+      initiative_score,
+      description,
+    } = character;
+    const [result] = await databaseClient.query<Result>(
+      "insert into gamecharacter (name, role, image, status, vital_points, mana_points, initiative_score, description) values (?, ?, ?, ?, ?, ?, ?, ?)",
+      [
+        name,
+        role,
+        image,
+        status,
+        vital_points,
+        mana_points,
+        initiative_score,
+        description,
+      ],
+    );
+
+    return result.insertId;
   }
 }
 

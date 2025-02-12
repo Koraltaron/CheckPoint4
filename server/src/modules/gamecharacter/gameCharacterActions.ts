@@ -28,4 +28,25 @@ const read: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { browse, read };
+const add: RequestHandler = async (req, res, next) => {
+  try {
+    const newGameCharacter = {
+      name: req.body.name,
+      role: req.body.role,
+      image: req.body.image,
+      status: req.body.status,
+      vital_points: req.body.vitalPoints,
+      mana_points: req.body.manaPoints,
+      initiative_score: req.body.initiativeScore,
+      description: req.body.description,
+    };
+    console.warn(newGameCharacter, "hello");
+
+    const insertId = await gameCharacterRepository.create(newGameCharacter);
+    res.status(201).json({ insertId });
+  } catch (err) {
+    next(err);
+  }
+};
+
+export default { browse, read, add };
