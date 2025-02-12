@@ -28,6 +28,21 @@ const read: RequestHandler = async (req, res, next) => {
   }
 };
 
+const sort: RequestHandler = async (req, res, next) => {
+  try {
+    const sortedCharacters =
+      await gameCharacterRepository.readAndSortByInitiative();
+
+    if (sortedCharacters.length) {
+      res.status(201).json(sortedCharacters);
+    } else {
+      res.sendStatus(404);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
 const destroy: RequestHandler = async (req, res, next) => {
   try {
     const { id } = req.params;
@@ -99,4 +114,4 @@ const edit: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { browse, read, add, destroy, edit };
+export default { browse, read, add, destroy, edit, sort };

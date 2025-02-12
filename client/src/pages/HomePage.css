@@ -1,0 +1,22 @@
+.homepage {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px 0 0 0;
+}
+
+.homepage > section:first-of-type {
+  width: 66%;
+}
+
+.homepage > section > h2 {
+  width: 100%;
+  text-align: center;
+  padding: 0 0 20px 0;
+}
+
+.character-container {
+  display: flex;
+  padding: 12px 0 0 0;
+  justify-content: center;
+  width: 100%;
+}
