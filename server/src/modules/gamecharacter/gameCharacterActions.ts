@@ -28,6 +28,20 @@ const read: RequestHandler = async (req, res, next) => {
   }
 };
 
+const destroy: RequestHandler = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const affectedRows = await gameCharacterRepository.delete(id);
+    if (affectedRows) {
+      res.status(201).json({ affectedRows });
+    } else {
+      res.sendStatus(404);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
 const add: RequestHandler = async (req, res, next) => {
   try {
     const newGameCharacter = {
@@ -49,4 +63,4 @@ const add: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { browse, read, add };
+export default { browse, read, add, destroy };

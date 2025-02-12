@@ -19,3 +19,7 @@ content-type: application/json
   "initiativeScore": 22, 
   "description": "Chef de la garde d'Hamersprit"
 }
+
+###
+
+DELETE http://localhost:3310/api/gamecharacter/4 HTTP/1.1

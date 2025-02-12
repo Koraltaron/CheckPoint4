@@ -2,18 +2,7 @@ import databaseClient, {
   type Result,
   type Rows,
 } from "../../../database/client";
-
-interface GameCharacter {
-  id: number;
-  name: string;
-  role: string;
-  image: string;
-  status: string;
-  vital_points: number;
-  mana_points: number;
-  initiative_score: number;
-  description: string;
-}
+import type { GameCharacter } from "../../types/modules/GameCharacter";
 
 class GameCharacterRepository {
   async readAll() {
@@ -29,6 +18,14 @@ class GameCharacterRepository {
       [id],
     );
     return row as GameCharacter[];
+  }
+
+  async delete(id: string) {
+    const [result] = await databaseClient.query<Result>(
+      "delete from gamecharacter where id = ?",
+      [id],
+    );
+    return result.affectedRows;
   }
 
   async create(character: Omit<GameCharacter, "id">) {

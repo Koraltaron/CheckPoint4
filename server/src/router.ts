@@ -15,5 +15,6 @@ import gameCharacterActions from "./modules/gamecharacter/gameCharacterActions";
 router.get("/api/gamecharacter", gameCharacterActions.browse);
 router.get("/api/gamecharacter/:id", gameCharacterActions.read);
 router.post("/api/gamecharacter", gameCharacterActions.add);
+router.delete("/api/gamecharacter/:id", gameCharacterActions.destroy);
 
 export default router;
