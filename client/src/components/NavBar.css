@@ -1,0 +1,17 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+header > a > img {
+  width: 80px;
+  padding: 0 0 0 10px;
+}
+
+header > nav {
+  display: flex;
+  gap: 16px;
+  padding: 0 10px 0 0;
+}

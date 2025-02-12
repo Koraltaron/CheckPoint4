@@ -1,10 +1,12 @@
-import "./style/globals.css";
+import { Outlet } from "react-router-dom";
+
+import NavBar from "./components/NavBar";
 
 function App() {
   return (
     <>
-      <h1>This is App</h1>
-      <p>Yes it is</p>
+      <NavBar />
+      <Outlet />
     </>
   );
 }
