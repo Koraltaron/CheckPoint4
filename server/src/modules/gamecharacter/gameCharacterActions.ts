@@ -54,7 +54,6 @@ const add: RequestHandler = async (req, res, next) => {
       initiative_score: req.body.initiativeScore,
       description: req.body.description,
     };
-    console.warn(newGameCharacter, "hello");
 
     const insertId = await gameCharacterRepository.create(newGameCharacter);
     res.status(201).json({ insertId });
@@ -63,4 +62,35 @@ const add: RequestHandler = async (req, res, next) => {
   }
 };
 
-export default { browse, read, add, destroy };
+const edit: RequestHandler = async (req, res, next) => {
+  try {
+    const {
+      name,
+      role,
+      image,
+      status,
+      vitalPoints,
+      manaPoints,
+      initiativeScore,
+      description,
+    } = req.body;
+    const id = Number(req.params.id);
+
+    const affectedRows = await gameCharacterRepository.update({
+      name,
+      role,
+      image,
+      status,
+      vitalPoints,
+      manaPoints,
+      initiativeScore,
+      description,
+      id,
+    });
+    res.status(201).json({ affectedRows });
+  } catch (err) {
+    next(err);
+  }
+};
+
+export default { browse, read, add, destroy, edit };

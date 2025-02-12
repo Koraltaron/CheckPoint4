@@ -22,4 +22,20 @@ content-type: application/json
 
 ###
 
+PUT http://localhost:3310/api/gamecharacter/3 HTTP/1.1
+content-type: application/json
+
+{
+  "name": "Gorgonzolla",
+  "role": "allié", 
+  "image": "osef",
+  "status": "vivant", 
+  "vitalPoints": 40, 
+  "manaPoints": 15, 
+  "initiativeScore": 22, 
+  "description": "Chef de la garde d'Hamersprit"
+}
+
+###
+
 DELETE http://localhost:3310/api/gamecharacter/4 HTTP/1.1

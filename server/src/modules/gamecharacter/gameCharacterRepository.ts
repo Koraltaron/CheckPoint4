@@ -2,6 +2,7 @@ import databaseClient, {
   type Result,
   type Rows,
 } from "../../../database/client";
+import type { EditGameCharacter } from "../../types/modules/EditGameCharacter";
 import type { GameCharacter } from "../../types/modules/GameCharacter";
 
 class GameCharacterRepository {
@@ -54,6 +55,36 @@ class GameCharacterRepository {
     );
 
     return result.insertId;
+  }
+
+  async update(character: EditGameCharacter) {
+    const {
+      name,
+      role,
+      image,
+      status,
+      vitalPoints,
+      manaPoints,
+      initiativeScore,
+      description,
+      id,
+    } = character;
+    const [result] = await databaseClient.query<Result>(
+      "update gamecharacter set name = ?, role = ?, image = ?, status = ?, vital_points = ?, mana_points = ?, initiative_score = ?, description = ? where id = ?",
+      [
+        name,
+        role,
+        image,
+        status,
+        vitalPoints,
+        manaPoints,
+        initiativeScore,
+        description,
+        id,
+      ],
+    );
+
+    return result.affectedRows;
   }
 }
 
