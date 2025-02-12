@@ -8,6 +8,7 @@ const router = express.Router();
 
 // imports
 import gameCharacterActions from "./modules/gamecharacter/gameCharacterActions";
+import userActions from "./modules/user/userActions";
 
 /* ************************ */
 
@@ -17,5 +18,9 @@ router.get("/api/gamecharacter/:id", gameCharacterActions.read);
 router.post("/api/gamecharacter", gameCharacterActions.add);
 router.delete("/api/gamecharacter/:id", gameCharacterActions.destroy);
 router.put("/api/gamecharacter/:id", gameCharacterActions.edit);
+
+/* user routes */
+router.get("/api/user", userActions.browse);
+router.post("/api/user", userActions.add);
 
 export default router;

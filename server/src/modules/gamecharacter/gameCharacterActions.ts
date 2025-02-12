@@ -4,7 +4,7 @@ import gameCharacterRepository from "./gameCharacterRepository";
 const browse: RequestHandler = async (req, res, next) => {
   try {
     const gameCharacters = await gameCharacterRepository.readAll();
-    if (gameCharacters) {
+    if (gameCharacters.length) {
       res.status(201).json(gameCharacters);
     } else {
       res.sendStatus(404);
@@ -58,7 +58,13 @@ const add: RequestHandler = async (req, res, next) => {
     const insertId = await gameCharacterRepository.create(newGameCharacter);
     res.status(201).json({ insertId });
   } catch (err) {
-    next(err);
+    const error = err as { code: string };
+    if (error.code === "ER_DUP_ENTRY") {
+      res.status(406).send("Ce nom de personnage existe déjà");
+    } else {
+      res.status(404);
+      next(err);
+    }
   }
 };
 
