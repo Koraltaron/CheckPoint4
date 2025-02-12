@@ -1,3 +1,19 @@
 .turnorder > h2 {
   text-align: center;
 }
+
+.turnorder > article {
+  display: flex;
+  border: 1px solid black;
+  border-radius: 15px;
+  width: 100%;
+  padding: 5px 10px;
+  justify-content: space-between;
+}
+
+.turnorder {
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}

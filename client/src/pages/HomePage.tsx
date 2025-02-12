@@ -16,7 +16,7 @@ export interface Characters {
 }
 
 function HomePage() {
-  const [characters, setCharacters] = useState<Characters[] | []>([]);
+  const [characters, setCharacters] = useState<Characters[]>([]);
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}/api/gamecharacter`)
@@ -30,22 +30,23 @@ function HomePage() {
         <h2>Liste des personnages</h2>
         {characters.length ? (
           characters.map((el) => (
-            <Character
-              key={el.id}
-              name={el.name}
-              image={el.image}
-              role={el.role}
-              status={el.status}
-              vital_points={el.vital_points}
-              mana_points={el.mana_points}
-            />
+            <section key={el.id} className="character-container">
+              <Character
+                name={el.name}
+                image={el.image}
+                role={el.role}
+                status={el.status}
+                vital_points={el.vital_points}
+                mana_points={el.mana_points}
+              />
+            </section>
           ))
         ) : (
           <p>Aucun personnage n'a été chargé</p>
         )}
       </section>
 
-      <TurnOrder />
+      <TurnOrder data={characters} />
     </main>
   );
 }
