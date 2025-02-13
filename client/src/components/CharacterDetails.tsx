@@ -3,10 +3,6 @@ import "./CharacterDetails.css";
 import useToast from "../hooks/useToast";
 import type { Characters } from "../pages/HomePage";
 
-interface CharacterDetailsProps {
-  charId: number;
-}
-
 function CharacterDetails({ charId }: Readonly<CharacterDetailsProps>) {
   const [character, setCharacter] = useState<Characters[] | null>(null);
   const [edit, setEdit] = useState(false);

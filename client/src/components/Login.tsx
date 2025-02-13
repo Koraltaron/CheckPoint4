@@ -1,13 +1,13 @@
 import type { FormEvent } from "react";
 import "./Login.css";
 import useToast from "../hooks/useToast";
-
-export interface LoginProps {
-  setIsRegistered: (value: boolean) => void;
-}
+import type { LoginProps } from "../types/LoginProps";
+import useLogin from "../utils/useLogin";
 
 function Login({ setIsRegistered }: Readonly<LoginProps>) {
   const { success, error } = useToast();
+
+  const { setIsLogged } = useLogin();
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -28,6 +28,7 @@ function Login({ setIsRegistered }: Readonly<LoginProps>) {
 
     if (response.ok) {
       success("Vous vous êtes bien connecté !");
+      setIsLogged(true);
     } else {
       error("Les informations renseignées ne sont pas valides");
     }

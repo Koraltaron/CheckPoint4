@@ -1,6 +1,6 @@
 import type { FormEvent } from "react";
 import "./Register.css";
-import type { LoginProps } from "./Login";
+import type { LoginProps } from "../types/LoginProps";
 
 function Register({ setIsRegistered }: Readonly<LoginProps>) {
   function handleSubmit(e: FormEvent<HTMLFormElement>) {

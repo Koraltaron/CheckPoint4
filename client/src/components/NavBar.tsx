@@ -1,7 +1,9 @@
 import { Link, NavLink } from "react-router-dom";
 import "./NavBar.css";
+import useLogin from "../utils/useLogin";
 
 function NavBar() {
+  const { isLogged } = useLogin();
   return (
     <header>
       <Link to="/">
@@ -14,7 +16,7 @@ function NavBar() {
       <nav>
         <NavLink to="/">Gestionnaire</NavLink>
         <NavLink to="/login">Connexion</NavLink>
-        <NavLink to="/board">Création</NavLink>
+        {isLogged && <NavLink to="/board">Création</NavLink>}
       </nav>
     </header>
   );

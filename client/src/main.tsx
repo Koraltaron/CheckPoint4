@@ -12,6 +12,8 @@ import LoginPage from "./pages/LoginPage";
 
 /****************** */
 import "./style/globals.css";
+import ProtectedRoutes from "./components/ProtectedRoutes";
+import UserProvider from "./contexts/UserProvider";
 
 const router = createBrowserRouter([
   {
@@ -28,7 +30,11 @@ const router = createBrowserRouter([
       },
       {
         path: "board",
-        element: <BoardPage />,
+        element: (
+          <ProtectedRoutes>
+            <BoardPage />
+          </ProtectedRoutes>
+        ),
       },
     ],
   },
@@ -45,7 +51,9 @@ if (rootElement == null) {
 // Render the app inside the root element
 createRoot(rootElement).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <UserProvider>
+      <RouterProvider router={router} />
+    </UserProvider>
   </StrictMode>,
 );
 
