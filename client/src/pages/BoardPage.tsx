@@ -1,11 +1,13 @@
+import CharacterForm from "../components/CharacterForm";
+import CharacterList from "../components/CharacterList";
 import "./BoardPage.css";
 
 function BoardPage() {
   return (
-    <>
-      <p>Ici c'est la : </p>
-      <p>Board Page :p</p>
-    </>
+    <main className="board-page">
+      <CharacterForm />
+      <CharacterList />
+    </main>
   );
 }
 

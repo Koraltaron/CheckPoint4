@@ -12,8 +12,9 @@ function NavBar() {
       </Link>
       <h1>JDR Manager</h1>
       <nav>
+        <NavLink to="/">Gestionnaire</NavLink>
         <NavLink to="/login">Connexion</NavLink>
-        <NavLink to="/board">Gestionnaire</NavLink>
+        <NavLink to="/board">Création</NavLink>
       </nav>
     </header>
   );
