@@ -1,0 +1,40 @@
+.login-component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.login-component > h2,
+.login-component > p {
+  padding: 20px 0 10px 0;
+}
+
+.login-component > form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-component > form > button,
+.login-component > button {
+  padding: 10px 5px;
+  margin: 10px 0;
+}
+
+.login-component > form > input {
+  padding: 10px 5px;
+  margin: 0 0 10px 0;
+  width: 250px;
+}
+
+.login-component > button {
+  border: none;
+  background-color: rgb(242, 223, 160);
+  text-decoration: underline;
+}
+
+.login-component > button:hover,
+.login-component > p,
+.login-component > form > button {
+  cursor: pointer;
+}

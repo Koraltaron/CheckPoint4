@@ -10,6 +10,15 @@ class UserRepository {
     return rows as User[];
   }
 
+  async readByEmail(mail: string) {
+    const [rows] = await databaseClient.query<Rows>(
+      "SELECT password, mail FROM user WHERE mail = ?",
+      [mail],
+    );
+
+    return rows[0] as User;
+  }
+
   async create(user: Omit<User, "id">) {
     const { mail, password, nickname } = user;
     const [result] = await databaseClient.query<Result>(

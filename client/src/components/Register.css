@@ -1,0 +1,45 @@
+.register-component {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.register-component > h2,
+.register-component > p {
+  padding: 20px 0 10px 0;
+}
+
+.register-component > form {
+  display: flex;
+  flex-direction: column;
+}
+
+.register-component > form > button,
+.register-component > button {
+  padding: 10px 5px;
+  margin: 10px 0;
+}
+
+.register-component > form > input {
+  padding: 10px 5px;
+  margin: 0 0 10px 0;
+  width: 250px;
+}
+
+.register-component > button {
+  border: none;
+  background-color: rgb(242, 223, 160);
+  text-decoration: underline;
+}
+
+.register-component > button:hover,
+.register-component > p,
+.register-component > form > button {
+  cursor: pointer;
+}
+
+.register-component > form > div {
+  display: flex;
+  gap: 8px;
+}
