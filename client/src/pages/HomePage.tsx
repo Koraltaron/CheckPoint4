@@ -4,7 +4,7 @@ import TurnOrder from "../components/TurnOrder";
 import "./HomePage.css";
 
 export interface Characters {
-  id?: number;
+  id: number;
   name: string;
   image: string;
   role: string;
@@ -32,6 +32,7 @@ function HomePage() {
           characters.map((el) => (
             <section key={el.id} className="character-container">
               <Character
+                id={el.id}
                 name={el.name}
                 image={el.image}
                 role={el.role}

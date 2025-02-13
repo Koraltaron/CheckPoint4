@@ -1,0 +1,48 @@
+.character-form {
+  display: flex;
+  flex-direction: column;
+  width: 66%;
+  height: 95vh;
+  padding: 20px 0 0 10px;
+  background-color: rgb(242, 223, 160);
+}
+
+.character-form > h2 {
+  text-align: center;
+  width: 100%;
+}
+
+.character-form > form > input,
+.character-form > form > textarea {
+  padding: 5px 5px;
+}
+
+.character-form > img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  position: absolute;
+  object-fit: cover;
+  padding: 5px 0 0 5px;
+}
+
+.character-form > form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.character-form > form > button {
+  margin: 25px 0 0 0;
+  padding: 5px 20px;
+}
+
+.character-form > form > label {
+  margin: 15px 0 0 0;
+}
+
+.character-form > form > input,
+.character-form > form > label,
+.character-form > form > textarea {
+  width: 50%;
+  height: 30px;
+}
