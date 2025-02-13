@@ -53,3 +53,13 @@ content-type: application/json
   "password": "Pouet123!", 
   "nickname": "Mufufu"
 }
+
+###
+
+POST http://localhost:3310/api/user/login HTTP/1.1
+content-type: application/json
+
+{
+  "mail": "mail@mail.mail",
+  "password": "123"
+}

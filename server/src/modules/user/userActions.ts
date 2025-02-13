@@ -18,7 +18,11 @@ const add: RequestHandler = async (req, res, next) => {
   try {
     const { mail, password, nickname } = req.body;
 
-    const insertId = await userRepository.create({ mail, password, nickname });
+    const insertId = await userRepository.create({
+      mail,
+      password,
+      nickname,
+    });
     res.status(201).json({ insertId });
   } catch (err) {
     const error = err as { code: string };
