@@ -1,15 +1,13 @@
 import type { FormEvent } from "react";
 import "./Login.css";
-import { toast } from "react-toastify";
+import useToast from "../hooks/useToast";
 
 export interface LoginProps {
   setIsRegistered: (value: boolean) => void;
 }
 
 function Login({ setIsRegistered }: Readonly<LoginProps>) {
-  const success = () => toast.success("Vous vous êtes bien connecté !");
-  const error = () =>
-    toast.error("Les informations renseignées ne sont pas valides");
+  const { success, error } = useToast();
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -29,9 +27,9 @@ function Login({ setIsRegistered }: Readonly<LoginProps>) {
     );
 
     if (response.ok) {
-      success();
+      success("Vous vous êtes bien connecté !");
     } else {
-      error();
+      error("Les informations renseignées ne sont pas valides");
     }
   }
 
