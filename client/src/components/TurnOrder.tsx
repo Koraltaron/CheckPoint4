@@ -1,7 +1,7 @@
-import type { Characters } from "../pages/HomePage";
+import type { Characters } from "../types/Character";
 import "./TurnOrder.css";
 
-function TurnOrder({ data }: { data: Characters[] }) {
+function TurnOrder({ data }: Readonly<{ data: Characters[] }>) {
   console.warn(data);
   return (
     <section className="turnorder">
@@ -12,7 +12,7 @@ function TurnOrder({ data }: { data: Characters[] }) {
           return (
             <article key={el.id}>
               <p>{el.name}</p>
-              <p>{el.initiative_score}</p>
+              <p>Score d'intiative = {el.initiative_score}</p>
             </article>
           );
         })

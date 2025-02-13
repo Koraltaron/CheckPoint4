@@ -39,9 +39,13 @@ function Login({ setIsRegistered }: Readonly<LoginProps>) {
       <h2>Connexion</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="mail">Email</label>
-        <input name="mail" type="email" placeholder="email" />
+        <input
+          name="mail"
+          type="email"
+          placeholder="ex : jean-jacques.dupont@mail.fr"
+        />
         <label htmlFor="password">Mot de passe</label>
-        <input name="password" type="password" placeholder="Mot de passe" />
+        <input name="password" type="password" placeholder="***************" />
 
         <button type="submit">Connexion</button>
       </form>

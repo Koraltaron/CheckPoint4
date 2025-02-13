@@ -1,5 +1,5 @@
 import { type MouseEvent, useEffect, useState } from "react";
-import type { Characters } from "../pages/HomePage";
+import type { Characters } from "../types/Character";
 import "./CharacterList.css";
 import CharacterDetails from "./CharacterDetails";
 

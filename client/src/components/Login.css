@@ -15,6 +15,24 @@
   flex-direction: column;
 }
 
+.login-component > form > button {
+  background-color: rgb(238, 123, 74);
+  border-radius: 15px;
+  font-size: 14px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.login-component > form > button:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.login-component > p:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
 .login-component > form > button,
 .login-component > button {
   padding: 10px 5px;
@@ -25,6 +43,9 @@
   padding: 10px 5px;
   margin: 0 0 10px 0;
   width: 250px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .login-component > button {
@@ -33,8 +54,6 @@
   text-decoration: underline;
 }
 
-.login-component > button:hover,
-.login-component > p,
-.login-component > form > button {
+.login-component > button:hover {
   cursor: pointer;
 }
