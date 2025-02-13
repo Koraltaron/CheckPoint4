@@ -12,6 +12,11 @@
   width: 100%;
 }
 
+.character-form > form > input,
+.character-form > form > textarea {
+  padding: 5px 5px;
+}
+
 .character-form > img {
   width: 90px;
   height: 90px;
