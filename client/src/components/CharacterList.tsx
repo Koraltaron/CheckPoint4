@@ -25,8 +25,6 @@ function CharacterList() {
     }
   }
 
-  console.warn(charName);
-
   return (
     <section className="character-list">
       <h2>Liste des personnages</h2>

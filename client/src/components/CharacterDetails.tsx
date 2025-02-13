@@ -7,7 +7,7 @@ interface CharacterDetailsProps {
 }
 
 function CharacterDetails({ charId }: Readonly<CharacterDetailsProps>) {
-  const [character, setCharacter] = useState<Characters | null>(null);
+  const [character, setCharacter] = useState<Characters[] | null>(null);
   const [edit, setEdit] = useState(false);
 
   useEffect(() => {
@@ -26,10 +26,15 @@ function CharacterDetails({ charId }: Readonly<CharacterDetailsProps>) {
           type="text"
           placeholder="Nom du personnage"
           disabled={!edit}
-          defaultValue={character ? character.name : ""}
+          defaultValue={character?.length && character[0].name}
         />
         <label htmlFor="role">Allégeance</label>
-        <select name="role" id="role" disabled={!edit}>
+        <select
+          name="role"
+          id="role"
+          disabled={!edit}
+          defaultValue={character?.length && character[0].role}
+        >
           <option value="">--Allégeance du personnage--</option>
           <option value="ally">allié</option>
           <option value="ennemy">ennemi</option>
@@ -42,6 +47,7 @@ function CharacterDetails({ charId }: Readonly<CharacterDetailsProps>) {
           min="15"
           max="100"
           disabled={!edit}
+          defaultValue={character?.length && character[0].vital_points}
         />
         <label htmlFor="manaPoints">Points de mana maximum</label>
         <input
@@ -51,6 +57,7 @@ function CharacterDetails({ charId }: Readonly<CharacterDetailsProps>) {
           min="1"
           max="50"
           disabled={!edit}
+          defaultValue={character?.length && character[0].mana_points}
         />
         <label htmlFor="initiativeScore">Score d'initiative</label>
         <input
@@ -60,6 +67,7 @@ function CharacterDetails({ charId }: Readonly<CharacterDetailsProps>) {
           min="1"
           max="50"
           disabled={!edit}
+          defaultValue={character?.length && character[0].initiative_score}
         />
         <label htmlFor="description">Informations du personnage</label>
         <textarea
@@ -67,6 +75,7 @@ function CharacterDetails({ charId }: Readonly<CharacterDetailsProps>) {
           name="description"
           placeholder="Renseigner les éléments caractéristiques du personnage : âge, apparence, histoire, caractère ..."
           disabled={!edit}
+          defaultValue={character?.length && character[0].description}
         />
         <button type="submit">Valider</button>
       </form>
