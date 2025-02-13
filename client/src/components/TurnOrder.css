@@ -4,11 +4,12 @@
 
 .turnorder > article {
   display: flex;
-  border: 1px solid black;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 15px;
   width: 100%;
-  padding: 5px 10px;
+  padding: 10px 20px;
   justify-content: space-between;
+  background-color: rgb(242, 223, 160);
 }
 
 .turnorder {

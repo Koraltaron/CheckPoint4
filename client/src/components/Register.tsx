@@ -1,9 +1,11 @@
 import type { FormEvent } from "react";
 import "./Register.css";
+import useToast from "../hooks/useToast";
 import type { LoginProps } from "../types/LoginProps";
 
 function Register({ setIsRegistered }: Readonly<LoginProps>) {
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  const { success, error } = useToast();
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
@@ -13,15 +15,20 @@ function Register({ setIsRegistered }: Readonly<LoginProps>) {
     } else if (data.conditions !== "on") {
       alert("Vous devez accepter les conditions générales d'utilisation");
     } else {
-      fetch(`${import.meta.env.VITE_API_URL}/api/user`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/user`, {
         method: "POST",
         headers: {
           "content-type": "application/json",
         },
         body: JSON.stringify(data),
-      })
-        .then((response) => response.json())
-        .then((res) => console.warn(res));
+      });
+
+      if (response.ok) {
+        success("Votre compte a bien été créé");
+        setIsRegistered(true);
+      } else {
+        error("Une erreur est survenue");
+      }
     }
   }
 
@@ -30,16 +37,20 @@ function Register({ setIsRegistered }: Readonly<LoginProps>) {
       <h2>Création de compte</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="nickname">Pseudo</label>
-        <input name="nickname" type="text" placeholder="pseudo" />
+        <input name="nickname" type="text" placeholder="Pseudo" />
         <label htmlFor="mail">Email</label>
-        <input name="mail" type="email" placeholder="email" />
+        <input
+          name="mail"
+          type="email"
+          placeholder="ex : jean-jacques.dupont@mail.fr"
+        />
         <label htmlFor="password">Mot de passe</label>
-        <input name="password" type="password" placeholder="Mot de passe" />
+        <input name="password" type="password" placeholder="***************" />
         <label htmlFor="confirmation">Confirmation du mot de passe</label>
         <input
           name="confirmation"
           type="password"
-          placeholder="Confirmation du mot de passe"
+          placeholder="***************"
         />
         <div>
           <input name="conditions" type="checkbox" />

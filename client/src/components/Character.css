@@ -1,5 +1,5 @@
 .identity {
-  width: 200px;
+  width: 80%;
   height: 50px;
   display: flex;
   justify-content: space-between;
@@ -8,15 +8,18 @@
 }
 
 .ressources {
-  width: 200px;
+  width: 80%;
   height: 25px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: 16px;
 }
+.ressources > input {
+  width: 125px;
+}
 
-.character > img {
+.character > section > img {
   width: 75px;
   height: 75px;
   object-fit: cover;
@@ -26,11 +29,16 @@
 
 .character {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  border: 1px solid black;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 15px;
   padding: 10px 5px;
   width: 90%;
+  background-color: rgb(242, 223, 160);
+}
+
+.out-ressource {
+  border: 2px solid red;
 }

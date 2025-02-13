@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
 
 :root {
-  --mainColor: ;
+  --mainColor: white;
   --shadowColor: ;
   --secondaryColor: ;
   --tertiaryColor: ;
@@ -20,4 +20,11 @@ body {
   background: var(--mainColor);
   background-repeat: no-repeat;
   min-height: 90vh;
+}
+
+.background {
+  width: 100%;
+  opacity: 0.5;
+  z-index: -1;
+  position: absolute;
 }
