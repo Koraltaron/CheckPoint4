@@ -70,7 +70,7 @@ function CharacterForm() {
         />
         <label htmlFor="description">Informations du personnage</label>
         <textarea
-          rows={10}
+          rows={50}
           name="description"
           placeholder="Renseigner les éléments caractéristiques du personnage : âge, apparence, histoire, caractère ..."
         />
