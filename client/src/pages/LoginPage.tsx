@@ -1,11 +1,20 @@
+import { useState } from "react";
+import Login from "../components/Login";
+import Register from "../components/Register";
 import "./LoginPage.css";
 
 function LoginPage() {
+  const [isRegistered, setIsRegistered] = useState(false);
   return (
-    <>
-      <p>Ici c'est la : </p>
-      <p>Login Page :p</p>
-    </>
+    <main className="login-page">
+      <section className="login-register-container">
+        {isRegistered ? (
+          <Login setIsRegistered={setIsRegistered} />
+        ) : (
+          <Register setIsRegistered={setIsRegistered} />
+        )}
+      </section>
+    </main>
   );
 }
 
