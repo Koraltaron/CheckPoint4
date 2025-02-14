@@ -25,6 +25,18 @@
 
 .details > form > button {
   margin: 0 0 0 50%;
+  background-color: rgb(238, 123, 74);
+  border-radius: 15px;
+  font-size: 14px;
+  border: none;
+  width: 100px;
+  height: 25px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  cursor: pointer;
+}
+
+.details > form > button:hover {
+  opacity: 0.6;
 }
 
 .details > form > label {
@@ -39,6 +51,16 @@
 .details > div > button {
   width: 100px;
   height: 30px;
+  background-color: rgb(238, 123, 74);
+  border-radius: 15px;
+  font-size: 14px;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  cursor: pointer;
+}
+
+.details > div > button:hover {
+  opacity: 0.6;
 }
 
 .button-container {

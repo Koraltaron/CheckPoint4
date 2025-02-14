@@ -1,5 +1,6 @@
 import type { FormEvent } from "react";
 import "./Login.css";
+import { useNavigate } from "react-router-dom";
 import useToast from "../hooks/useToast";
 import type { LoginProps } from "../types/LoginProps";
 import useLogin from "../utils/useLogin";
@@ -8,6 +9,8 @@ function Login({ setIsRegistered }: Readonly<LoginProps>) {
   const { success, error } = useToast();
 
   const { setIsLogged } = useLogin();
+
+  const navigate = useNavigate();
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -29,6 +32,7 @@ function Login({ setIsRegistered }: Readonly<LoginProps>) {
     if (response.ok) {
       success("Vous vous êtes bien connecté !");
       setIsLogged(true);
+      navigate("/");
     } else {
       error("Les informations renseignées ne sont pas valides");
     }
