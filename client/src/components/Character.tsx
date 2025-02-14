@@ -1,4 +1,4 @@
-import { type ChangeEvent, useState } from "react";
+import { type KeyboardEvent, useState } from "react";
 import type { Characters } from "../types/Character";
 import "./Character.css";
 
@@ -13,30 +13,36 @@ function Character({
   const [vital, setVital] = useState(vital_points);
   const [mana, setMana] = useState(mana_points);
 
-  function handlePVChange(e: ChangeEvent<HTMLInputElement>) {
-    const damages = e.currentTarget.value;
-
-    if (vital > 0) {
-      if (Number(damages) < vital) {
-        setVital(vital - Number(damages));
+  function handlePVKeyDown(e: KeyboardEvent<HTMLInputElement>) {
+    if (e.key === "Enter") {
+      const damages = e.currentTarget.value;
+      if (vital > 0) {
+        if (Number(damages) < vital) {
+          setVital(vital - Number(damages));
+        } else {
+          setVital(0);
+        }
       } else {
         setVital(0);
       }
-    } else {
-      setVital(0);
+
+      e.currentTarget.value = "";
     }
   }
 
-  function handleManaChange(e: ChangeEvent<HTMLInputElement>) {
-    const manaUsed = e.currentTarget.value;
-    if (mana > 0) {
-      if (Number(manaUsed) < mana) {
-        setMana(mana - Number(manaUsed));
+  function handleManaKeyDown(e: KeyboardEvent<HTMLInputElement>) {
+    if (e.key === "Enter") {
+      const manaUsed = e.currentTarget.value;
+      if (mana > 0) {
+        if (Number(manaUsed) < mana) {
+          setMana(mana - Number(manaUsed));
+        } else {
+          setMana(0);
+        }
       } else {
         setMana(0);
       }
-    } else {
-      setMana(0);
+      e.currentTarget.value = "";
     }
   }
 
@@ -56,7 +62,7 @@ function Character({
           name="vitalPoints"
           type="number"
           placeholder="Dégâts subis"
-          onChange={handlePVChange}
+          onKeyDown={handlePVKeyDown}
           className={vital === 0 ? "out-ressource" : "fine"}
           disabled={vital === 0}
         />
@@ -67,7 +73,7 @@ function Character({
           name="manaPoints"
           type="number"
           placeholder="Mana dépensé"
-          onChange={handleManaChange}
+          onKeyDown={handleManaKeyDown}
           className={mana === 0 ? "out-ressource" : "fine"}
           disabled={mana === 0}
         />
