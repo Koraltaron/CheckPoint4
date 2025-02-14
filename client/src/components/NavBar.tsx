@@ -12,7 +12,7 @@ function NavBar() {
           src="https://club-jdr.fr/wp-content/uploads/2021/12/jdr.png"
         />
       </Link>
-      <h1>JDR Manager</h1>
+      <h1>Critical One</h1>
       <nav>
         <NavLink to="/">Gestionnaire</NavLink>
         <NavLink to="/login">Connexion</NavLink>
