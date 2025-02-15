@@ -67,7 +67,7 @@ function Character({
           disabled={vital === 0}
         />
         <label htmlFor="manaPoints">
-          PV = {mana}/{mana_points}
+          Mana = {mana}/{mana_points}
         </label>
         <input
           name="manaPoints"
