@@ -39,4 +39,14 @@ User Stories :
 /*** Suite = si le temps ***/
 8 : Création d'un context = vérification si l'utilisateur est connecté
 9 : Création d'un composant ProtectedRoutes.tsx pour bloquer la navigation vers la BoardPage si l'utilisateur n'est pas connecté
-10 : Mettre deux validateurs : un sur POST /api/user pour l'enregistrement et l'autre sur POST /api/character pour la création de personnage
+
+/*** Prochains tickets ***/
+010 : Mettre deux validateurs : un sur POST /api/user pour l'enregistrement et l'autre sur POST /api/character pour la création de personnage
+011 : mettre en place multer pour charger l'image du personnage à la création
+012 : créer une table battle qui contiendra : un id, un nom, une date 
+013 : créer une table archive qui contiendra : la liste des characters et leur statut à la fin du combat
+014 : créer un composant battle à la place du map de characters dans HomePage pour initialiser une bataille en saisissant le nom de la bataille
+015 : dans le composant bataille il sera possible soit :
+  - récupérer des personnages depuis l'archive
+  - récupérer des personnages depuis characters
+Note : prévoir un fetch dynamique ou un filtre des personnages pour n'afficher que ceux que l'utilisateur désire
