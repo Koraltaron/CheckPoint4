@@ -8,15 +8,8 @@
   width: 66%;
 }
 
-.homepage > section > h2 {
+.homepage > h2 {
   width: 100%;
   text-align: center;
   padding: 0 0 20px 0;
-}
-
-.character-container {
-  display: flex;
-  padding: 12px 0 0 0;
-  justify-content: center;
-  width: 100%;
 }
