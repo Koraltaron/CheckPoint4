@@ -1,6 +1,7 @@
 import type { FormEvent } from "react";
+import useToast from "../../hooks/useToast";
+
 import "./CharacterForm.css";
-import useToast from "../hooks/useToast";
 
 function CharacterForm() {
   const { success, error } = useToast();

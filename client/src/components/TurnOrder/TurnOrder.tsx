@@ -1,4 +1,4 @@
-import type { Characters } from "../types/Character";
+import type { Characters } from "../../types/Character";
 import "./TurnOrder.css";
 
 function TurnOrder({ data }: Readonly<{ data: Characters[] }>) {

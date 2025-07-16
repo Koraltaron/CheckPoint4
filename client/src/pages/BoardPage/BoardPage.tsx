@@ -1,6 +1,6 @@
 import { useState } from "react";
-import CharacterForm from "../components/CharacterForm";
-import CharacterList from "../components/CharacterList";
+import CharacterForm from "../../components/CharacterForm/CharacterForm";
+import CharacterList from "../../components/CharacterList/CharacterList";
 import "./BoardPage.css";
 
 function BoardPage() {

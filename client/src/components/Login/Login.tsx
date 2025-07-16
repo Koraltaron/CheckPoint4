@@ -1,9 +1,11 @@
 import type { FormEvent } from "react";
-import "./Login.css";
 import { useNavigate } from "react-router-dom";
-import useToast from "../hooks/useToast";
-import type { LoginProps } from "../types/LoginProps";
-import useLogin from "../utils/useLogin";
+import useToast from "../../hooks/useToast";
+import useLogin from "../../utils/useLogin";
+
+import type { LoginProps } from "../../types/LoginProps";
+
+import "./Login.css";
 
 function Login({ setIsRegistered }: Readonly<LoginProps>) {
   const { success, error } = useToast();

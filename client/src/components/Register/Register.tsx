@@ -1,7 +1,7 @@
 import type { FormEvent } from "react";
 import "./Register.css";
-import useToast from "../hooks/useToast";
-import type { LoginProps } from "../types/LoginProps";
+import useToast from "../../hooks/useToast";
+import type { LoginProps } from "../../types/LoginProps";
 
 function Register({ setIsRegistered }: Readonly<LoginProps>) {
   const { success, error } = useToast();
