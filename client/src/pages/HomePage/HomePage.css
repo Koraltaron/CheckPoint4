@@ -4,10 +4,6 @@
   padding: 20px 0 0 0;
 }
 
-.homepage > section:first-of-type {
-  width: 66%;
-}
-
 .homepage > h2 {
   width: 100%;
   text-align: center;

@@ -2,7 +2,6 @@ import type { Characters } from "../../types/Character";
 import "./TurnOrder.css";
 
 function TurnOrder({ data }: Readonly<{ data: Characters[] }>) {
-  console.warn(data);
   return (
     <section className="turnorder">
       <h2>Turn Order</h2>

@@ -15,7 +15,6 @@ function HomePage() {
 
   return (
     <main className="homepage">
-      <h2>Liste des personnages</h2>
       <BattleScene characters={characters} />
     </main>
   );
