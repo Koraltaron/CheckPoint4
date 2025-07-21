@@ -4,6 +4,7 @@
   align-items: start;
   width: 100%;
   gap: 16px;
+  border: 1px solid black;
 }
 
 .battle-scene h2 {
@@ -33,36 +34,7 @@
   border: 3px solid transparent;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-.character-container > button:hover,
-.selection > button:hover {
+.character-container > button:hover {
   border-color: rgba(255, 255, 255, 0.544);
   transition: 0.3s;
-}
-
-.visible-button {
-  display: block;
-  transition: 0.3s;
-}
-
-.invisible-button {
-  display: none;
-  transition: 0.3s;
-}
-
-.selection > button {
-  width: 120px;
-  height: 30px;
-  cursor: pointer;
-  background-color: rgb(238, 123, 74);
-  border-radius: 15px;
-  border: 3px solid transparent;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
-
-.selection {
-  width: 10vw;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  align-items: center;
 }

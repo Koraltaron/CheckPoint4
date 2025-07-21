@@ -4,6 +4,7 @@ import Character from "../Character/Character";
 import TurnOrder from "../TurnOrder/TurnOrder";
 import "./BattleScene.css";
 import { X } from "lucide-react";
+import CharacterSelection from "../CharacterSelection/CharacterSelection";
 
 interface BattleSceneProps {
   characters: Characters[];
@@ -28,45 +29,13 @@ function BattleScene({ characters }: BattleSceneProps) {
   return (
     <>
       <section className="battle-scene">
-        <div className="selection">
-          <button
-            type="button"
-            onClick={() => {
-              setShowCharacters(!showCharacters);
-            }}
-          >
-            Show characters
-          </button>
-          {characters.length &&
-            characters.map((el) => {
-              return (
-                <button
-                  type="button"
-                  key={el.id}
-                  className={
-                    showCharacters ? "visible-button" : "invisible-button"
-                  }
-                  onClick={() => {
-                    setSelectedName(el.name);
-                  }}
-                >
-                  {el.name}
-                </button>
-              );
-            })}
-
-          {showCharacters && (
-            <button
-              type="button"
-              onClick={() => {
-                setCharacterName([]);
-                setSelectedName(null);
-              }}
-            >
-              <X color="black" size={20} />
-            </button>
-          )}
-        </div>
+        <CharacterSelection
+          showCharacters={showCharacters}
+          setShowCharacters={setShowCharacters}
+          characters={characters}
+          setSelectedName={setSelectedName}
+          setCharacterName={setCharacterName}
+        />
         <div className="character-list-div">
           <h2>Liste des personnages</h2>
           {filteredCharacterList.length > 0 &&
@@ -99,7 +68,7 @@ function BattleScene({ characters }: BattleSceneProps) {
               );
             })}
         </div>
-        <TurnOrder data={characters} />
+        <TurnOrder filteredCharacterList={filteredCharacterList} />
       </section>
     </>
   );
