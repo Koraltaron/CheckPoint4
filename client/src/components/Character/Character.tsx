@@ -1,5 +1,5 @@
 import { type KeyboardEvent, useState } from "react";
-import type { Characters } from "../types/Character";
+import type { Characters } from "../../types/Character";
 import "./Character.css";
 
 function Character({

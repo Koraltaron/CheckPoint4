@@ -1,19 +1,15 @@
-// Import necessary modules from React and React Router
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-/* ************************************************************************* */
-
 import App from "./App";
-import BoardPage from "./pages/BoardPage";
-import HomePage from "./pages/HomePage";
-import LoginPage from "./pages/LoginPage";
-
-/****************** */
-import "./style/globals.css";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 import UserProvider from "./contexts/UserProvider";
+import BoardPage from "./pages/BoardPage/BoardPage";
+import HomePage from "./pages/HomePage/HomePage";
+import LoginPage from "./pages/LoginPage/LoginPage";
+
+import "./style/globals.css";
 
 const router = createBrowserRouter([
   {
@@ -40,15 +36,11 @@ const router = createBrowserRouter([
   },
 ]);
 
-/* ************************************************************************* */
-
-// Find the root element in the HTML document
 const rootElement = document.getElementById("root");
 if (rootElement == null) {
   throw new Error(`Your HTML Document should contain a <div id="root"></div>`);
 }
 
-// Render the app inside the root element
 createRoot(rootElement).render(
   <StrictMode>
     <UserProvider>
@@ -56,28 +48,3 @@ createRoot(rootElement).render(
     </UserProvider>
   </StrictMode>,
 );
-
-/**
- * Helpful Notes:
- *
- * 1. Adding More Routes:
- *    To add more pages to your app, first create a new component (e.g., About.tsx).
- *    Then, import that component above like this:
- *
- *    import About from "./pages/About";
- *
- *    Add a new route to the router:
- *
- *      {
- *        path: "/about",
- *        element: <About />,  // Renders the About component
- *      }
- *
- * 2. Try Nested Routes:
- *    For more complex applications, you can nest routes. This lets you have sub-pages within a main page.
- *    Documentation: https://reactrouter.com/en/main/start/tutorial#nested-routes
- *
- * 3. Experiment with Dynamic Routes:
- *    You can create routes that take parameters (e.g., /users/:id).
- *    Documentation: https://reactrouter.com/en/main/start/tutorial#url-params-in-loaders
- */

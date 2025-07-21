@@ -1,8 +1,8 @@
 import { type MouseEvent, useEffect, useState } from "react";
-import type { Characters } from "../types/Character";
+import type { Characters } from "../../types/Character";
+import type { RefreshProps } from "../../types/RefreshProps";
+import CharacterDetails from "../CharacterDetails/CharacterDetails";
 import "./CharacterList.css";
-import type { RefreshProps } from "../types/RefreshProps";
-import CharacterDetails from "./CharacterDetails";
 
 function CharacterList({ refresh, setRefresh }: Readonly<RefreshProps>) {
   const [characters, setCharacters] = useState<Characters[]>([]);

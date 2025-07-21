@@ -1,7 +1,9 @@
 import { type FormEvent, useEffect, useState } from "react";
+
+import useToast from "../../hooks/useToast";
+import type { Characters } from "../../types/Character";
+
 import "./CharacterDetails.css";
-import useToast from "../hooks/useToast";
-import type { Characters } from "../types/Character";
 
 function CharacterDetails({ charId }: Readonly<CharacterDetailsProps>) {
   const [character, setCharacter] = useState<Characters[] | null>(null);

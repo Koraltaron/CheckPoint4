@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import "./NavBar.css";
-import useLogin from "../utils/useLogin";
+import useLogin from "../../utils/useLogin";
 
 function NavBar() {
   const { isLogged } = useLogin();

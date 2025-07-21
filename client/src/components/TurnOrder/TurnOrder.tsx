@@ -1,14 +1,15 @@
-import type { Characters } from "../types/Character";
+import type { Characters } from "../../types/Character";
 import "./TurnOrder.css";
 
-function TurnOrder({ data }: Readonly<{ data: Characters[] }>) {
-  console.warn(data);
+function TurnOrder({
+  filteredCharacterList,
+}: Readonly<{ filteredCharacterList: Characters[] }>) {
   return (
     <section className="turnorder">
       <h2>Turn Order</h2>
 
-      {data.length ? (
-        data.map((el) => {
+      {filteredCharacterList.length ? (
+        filteredCharacterList.map((el) => {
           return (
             <article key={el.id}>
               <p>{el.name}</p>
@@ -17,7 +18,7 @@ function TurnOrder({ data }: Readonly<{ data: Characters[] }>) {
           );
         })
       ) : (
-        <p>Aucune donnée trouvée</p>
+        <p>Aucun personnage n'a été sélectionné !</p>
       )}
     </section>
   );
